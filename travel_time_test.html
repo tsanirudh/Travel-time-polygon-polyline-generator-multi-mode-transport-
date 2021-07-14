@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Tutorial - Part 3</title>
+
+    <!-- These two libraries are copied from the download builder here: https://datatables.net/download/ -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/cr-1.5.0/fh-3.1.4/r-2.2.2/sc-2.0.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/cr-1.5.0/fh-3.1.4/r-2.2.2/sc-2.0.0/datatables.min.js">
+    </script>
+
+    <!-- An icon library, learn more here: https://material.io/resources/icons/?style=baseline -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Include the Tableau Extensions library so we can communicate with Tableau -->
+    <script src="/lib/tableau.extensions.1.latest.js"></script>
+
+    <!-- Include our own style sheets and javascript code -->
+    <link rel="stylesheet" href="./traveltime.css">
+    <script src="./traveltime.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+    <style>
+          #mapid { height: 400%;
+                    width: 230%; }
+    </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+    <div class="container">
+        <div class="options">
+
+            <div id="choose_sheet_dialog" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Choose a Sheet from <span class="sheet_name" id="choose_sheet_title"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="choose_sheet_buttons"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- Main UI -->
+                <div id="selected_marks">
+                    <h4><span class="sheet_name" id="selected_marks_title">Sheet Name</span>
+                </button>
+                    </h4>
+                    <div id="data_table_wrapper"></div>
+                </div>
+            </div>
+
+            <input type="text" id="time" placeholder="Enter travel time (min)">
+            <select name="transportmode" id="cars">
+                <option value="volvo">Cycling</option>
+                <option value="saab">Public Transport</option>
+                <option value="mercedes">Driving</option>
+                <option value="audi">Ferry</option>
+                </select>
+                
+                <label for="start">Start date:</label>
+
+                <input type="date" id="start" name="trip-start"
+                 value="2018-07-22"
+                    min="2018-01-01" max="2018-12-31">
+
+                    <label for="appt-time">Choose time: </label>
+                    <input id="appt-time" type="time" name="appt-time" value="13:30">
+
+                    <CENTRE>
+                        <button class="button" style="vertical-align:middle" id="submit" onclick="function1()"><span>Submit </span></button>
+                    </CENTRE>
+
+                
+
+             
+        </div>
+        <div class="mapid" id="mapid"></div>
+      </div>
+</body>
+
+
+
+</html>
